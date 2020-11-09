@@ -13,7 +13,8 @@ class HandleGenerator {
                 if (username == user.username && md5(password) == user.password) {
                     let token = jwt.sign({
                         username: username,
-                        password: md5(password)
+                        password: md5(password),
+                        role: user.role
                     }, config.secret, {
                         expiresIn: '24h'
                     });
